@@ -1,0 +1,6 @@
+tensorflow-cpu
+Flask==3.0.0
+keras==3.4.0
+numpy==1.26.4
+matplotlib==3.7.1
+Flask-Cors==4.0.1
