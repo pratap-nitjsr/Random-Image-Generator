@@ -8,8 +8,10 @@ import base64
 from io import BytesIO
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from huggingface_hub import hf_hub_download
 
-generator = keras.models.load_model('./GeneratorModels/CGAN_Generator.h5')
+model_path = hf_hub_download(repo_id="Pratap-K/cgan-generator", filename="CGAN_Generator.h5")
+generator = keras.models.load_model(model_path)
 
 
 def generate_images(num_examples, class_label):
