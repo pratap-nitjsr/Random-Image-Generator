@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const flaskapi = axios.create({
-  baseURL: 'https://random-image-generator-production.up.railway.app/',
+  baseURL: 'https://random-image-generator-flask.onrender.com/',
 });
 
 export default flaskapi;
