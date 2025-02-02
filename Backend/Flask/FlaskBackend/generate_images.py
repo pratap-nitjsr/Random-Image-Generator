@@ -1,6 +1,7 @@
 import os
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 
+import dotenv
 import keras as keras
 import numpy as np
 import matplotlib.pyplot as plt
@@ -8,7 +9,14 @@ import base64
 from io import BytesIO
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from huggingface_hub import login
 from huggingface_hub import hf_hub_download
+
+dotenv.load_dotenv()
+
+hf_hub_token = os.getenv("HF_Hub_Token")
+
+login(token = hf_hub_token)
 
 model_path = hf_hub_download(repo_id="Pratap-K/cgan-generator", filename="CGAN_Generator.h5")
 generator = keras.models.load_model(model_path)
